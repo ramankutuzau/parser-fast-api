@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BTI Project</title>
+    <meta http-equiv="refresh" content="10" />
+    <link href="{{ url_for('static', path='/styles.css') }}" rel="stylesheet">
+   
+</head>
+
+<body class="index-page bg-gray-200">
+
+
+<header class="header-2">
+  <div class="page-header min-vh-35 relative" style="background-image:url('http://127.0.0.1:8000/static/images/Grodna28.jpg'">
+
+    <span class="mask bg-gradient-secondary opacity-4"></span>
+    <div class="container">
+      <div class="row">
+
+        <div class="col-lg-7 text-center mx-auto">
+          <h1 class="text-white pt-3 mt-n5">Электронная очередь</h1>
+          <p class="lead text-white mt-3">Гродненское агентство по государственной регистрации и земельному кадастру <br/></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="card card-body blur shadow-blur mx-3 mx-md-4 mt-n6">
+
+<section class="pt-3 pb-4" id="count-stats">
+    <div class="row">
+      <div class="col-lg-12 mx-auto py-3">
+        <div class="row" style="justify-content: center;">
+
+            {% for key, value in services.items() %}
+          <div class="col-lg-2 col-md-3 col-xs-12 position-relative info-horizontal bg-gray-100 border-radius-xl d-block d-md-flex p-4 h-100" style="height:220px">
+            <div class=" d-block-inner p-3 text-center">
+              <h1 class="text-gradient text-primary"> <span id="state2" countTo="{{ value }}">{{ value }}</span></h1>
+              <h5 class="mt-3">{{ key }}</h5>
+            </div>
+          </div>
+            {% endfor %}
+
+
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<style>
+  .d-block {
+    margin:10px;
+    min-height: 235px;
+    max-height: 235px;
+    justify-content: center;
+  }
+
+
+</style>
+
+
+
+
+
+
+
+</body>
+</html>
+
+
+<script>
+setInterval(refresh_table, 30000);
+
+function refresh_table() {
+  $("#table_container").load("/load_table");
+}
+</script>

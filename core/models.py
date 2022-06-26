@@ -220,12 +220,12 @@ class Model(BaseModel):
     date: int
 
 class Ticket(BaseModel):
+    prefix: str
+    number: str
     status: str
     service_id: str
     service_name: str
     user_name: Optional[str]
     stand_time: str
     start_time: Optional[datetime]
-    waite_start_time: Optional[int]
-    waite_stand_time: Optional[int]
 
